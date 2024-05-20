@@ -2,35 +2,28 @@ package com.example.TheHanger;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
-
+import android.widget.Button;
+import android.view.View;
 import com.example.helloworld.R;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState); //gedagedigedagedado
+        super.onCreate(savedInstanceState); //
         setContentView(R.layout.activity_main);
 
-
-    }
-}
-public class MainActivity extends AppCompatActivity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.play1); // bien mettre le bon layout ptn
-
         // Trouver le bouton avec l'ID "button"
-        Button playButton = findViewById(@+id/button);
+        Button playButton = findViewById(R.id.play);
 
         // Ajouter un écouteur de clics au bouton
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Créer une intention pour démarrer une nouvelle activité
-                Intent intent = new Intent(MainActivity.this, play1.class);
+                Intent intent = new Intent(MainActivity.this, select_difficulty.class);
                 startActivity(intent);
             }
         });
