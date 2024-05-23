@@ -4,15 +4,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context="com.example.TheHanger.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="427dp"
+        android:layout_height="396dp"
+        android:rotation="180"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        android:contentDescription="@string/top_fire_border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pngwing_com__1_" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="361dp"
+        android:layout_height="340dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="384dp"
+        android:contentDescription="@string/hangman"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/play"
+        app:srcCompat="@drawable/hangman" />
+
+    <Button
+        android:id="@+id/play"
+        android:layout_width="161dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginLeft="125dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginEnd="125dp"
+        android:layout_marginRight="125dp"
+        android:layout_marginBottom="34dp"
+        android:backgroundTint="#F44336"
+        android:fontFamily="casual"
+        android:contentDescription="@string/play_button"
+        android:text="PLAY"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:rippleColor="#FF5722" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="427dp"
+        android:layout_height="396dp"
+        android:layout_marginTop="92dp"
+        android:contentDescription="@string/bottom_fire_border"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/pngwing_com__1_" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
