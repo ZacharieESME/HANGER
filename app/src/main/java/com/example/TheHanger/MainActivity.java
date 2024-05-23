@@ -14,6 +14,28 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Initialize your custom keyboard layout
+    LinearLayout keyboardLayout;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // Find the custom keyboard layout by its ID
+        keyboardLayout = findViewById(R.id.keyboardLayout);
+    }
+
+    // Define a method to handle button clicks on the custom keyboard
+    public void onKeyboardButtonClick(View view) {
+        Button button = (Button) view;
+        String buttonText = button.getText().toString();
+        // Handle button click according to its text or perform any action
+    }
+}
+
+public class MainActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState); //
