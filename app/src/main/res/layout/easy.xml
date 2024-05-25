@@ -18,18 +18,7 @@
         app:srcCompat="@drawable/abc_vector_test" />
 
 
-    <ImageButton
-        android:id="@+id/imageButton6"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="?selectableItemBackgroundBorderless"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_delete"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.983"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/image_removebg_preview__2_" />
+
 
     <!-- activity_main.xml -->
     <!-- activity_main.xml -->
@@ -274,11 +263,6 @@
     </RelativeLayout>
 
 
-
-
-
-</LinearLayout>
-    </RelativeLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

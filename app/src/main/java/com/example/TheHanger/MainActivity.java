@@ -20,6 +20,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState); //
         setContentView(R.layout.activity_main);
 
+        // Pour start la musique
+        Intent serviceIntent = new Intent(this, MusicService.class);
+        startService(serviceIntent);
+
         // Trouver le bouton avec l'ID "button"
         Button playButton = findViewById(R.id.play);
 
@@ -33,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    @Override
+    @Override //Pour le menu des settings
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
@@ -48,5 +52,11 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    @Override //Pour la musique
+    protected void onDestroy() {
+        super.onDestroy();
+        Intent serviceIntent = new Intent(this, MusicService.class);
+        stopService(serviceIntent);
     }
 }
