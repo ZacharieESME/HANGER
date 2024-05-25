@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
 import com.example.helloworld.R;
-
+import androidx.appcompat.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -16,6 +19,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState); //
         setContentView(R.layout.activity_main);
+
+        // Pour start la musique
+        Intent serviceIntent = new Intent(this, MusicService.class);
+        startService(serviceIntent);
 
         // Trouver le bouton avec l'ID "button"
         Button playButton = findViewById(R.id.play);
@@ -29,5 +36,27 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+    @Override //Pour le menu des settings
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.settings) {
+            Intent intent = new Intent(this, Settings.class);
+            startActivity(intent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    @Override //Pour la musique
+    protected void onDestroy() {
+        super.onDestroy();
+        Intent serviceIntent = new Intent(this, MusicService.class);
+        stopService(serviceIntent);
     }
 }
