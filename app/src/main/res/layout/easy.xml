@@ -298,6 +298,8 @@
 
         </LinearLayout>
 
+
+
         <EditText
             android:id="@+id/displayText"
             android:layout_width="wrap_content"
@@ -308,7 +310,8 @@
             android:layout_alignParentLeft="false"
             android:layout_alignParentTop="true"
             android:hint="Enter letter here"
-            android:maxLength="1" />
+            android:maxLength="1"
+            android:inputType="none"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -318,19 +321,88 @@
             android:layout_marginTop="500dp"
             android:layout_marginRight="90dp"
             android:text="Guess"
+            android:onClick="onGuessClicked"
             android:backgroundTint="@color/button_background"/>
 
-        <TextView
-            android:id="@+id/wordDisplay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="150dp"
+
+        <LinearLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="0dp"
             android:layout_marginTop="400dp"
             android:gravity="center"
+            android:orientation="horizontal"
             android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            tools:context=".MainActivity">
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="480dp"
+            android:layout_marginLeft="10dp"
+            android:text="Wrong Guesses:"
+            android:id="@+id/wrongguesses"
+            >
+
+        </TextView>
+
+        <ImageView
+            android:id="@+id/hangman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/hangmanpart0" />
+
+        <ImageView
+            android:id="@+id/youlose"
+            android:layout_width="wrap_content"
+            android:layout_height="340dp"
+            app:srcCompat="@drawable/youlose"
+            android:visibility="invisible">
+
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/congrat"
+            android:layout_width="wrap_content"
+            android:layout_height="340dp"
+            app:srcCompat="@drawable/congrat"
+            android:visibility="invisible">
+
+        </ImageView>
+
+
+
+        <Button
+            android:id="@+id/tryagain"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="160dp"
+            android:layout_marginLeft="70dp"
+            android:text="New Word"
+            android:onClick="restartPage"
+            android:visibility="invisible">
+
+
+        </Button>
+
+        <Button
+            android:id="@+id/menu"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="160dp"
+            android:layout_marginLeft="220dp"
+            android:text="Menu"
+            android:visibility="invisible">
+
+
+        </Button>
+
+
+
+
 
     </RelativeLayout>
 

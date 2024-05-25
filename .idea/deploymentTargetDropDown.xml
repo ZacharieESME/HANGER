@@ -5,6 +5,9 @@
       <entry key="app">
         <State />
       </entry>
+      <entry key="easy_mode">
+        <State />
+      </entry>
     </value>
   </component>
 </project>
