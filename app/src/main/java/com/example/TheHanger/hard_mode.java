@@ -201,6 +201,9 @@ public class hard_mode extends AppCompatActivity {
                     Button menu = findViewById(R.id.menu);
                     menu.setVisibility(View.VISIBLE);
 
+                    TextView word = findViewById(R.id.word);
+                    word.setText("The word was: " + randomWord);
+
                 }
             }
         }
@@ -240,6 +243,9 @@ public class hard_mode extends AppCompatActivity {
         // Reset the word display (replace "container" with your layout ID)
         LinearLayout container = findViewById(R.id.container);
         displayWord(randomWord); // Display the new word
+
+        TextView word = findViewById(R.id.word);
+        word.setText("");
 
     }
 
