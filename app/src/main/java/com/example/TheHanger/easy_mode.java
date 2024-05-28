@@ -1,10 +1,12 @@
 package com.example.TheHanger;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -24,6 +26,7 @@ import java.util.Random;
 
 
 public class easy_mode extends AppCompatActivity {
+
 
     //private Set<Character> guessedLetters = new HashSet<>();
     public int guessedLetters = 0;
@@ -55,6 +58,33 @@ public class easy_mode extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.easy);
+
+        // Trouver le bouton avec l'ID "button"
+        ImageButton backButton = findViewById(R.id.hard);
+
+        // Ajouter un écouteur de clics au bouton
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Créer une intention pour démarrer une nouvelle activité
+                Intent intent = new Intent(easy_mode.this, select_difficulty.class);
+                startActivity(intent);
+            }
+        });
+
+
+        // Trouver le bouton avec l'ID "button"
+        ImageButton settingButton = findViewById(R.id.settings);
+
+        // Ajouter un écouteur de clics au bouton
+        settingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Créer une intention pour démarrer une nouvelle activité
+                Intent intent = new Intent(easy_mode.this, Settings.class);
+                startActivity(intent);
+            }
+        });
 
 
 
