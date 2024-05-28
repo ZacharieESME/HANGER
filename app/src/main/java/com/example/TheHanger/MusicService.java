@@ -28,6 +28,8 @@ public class MusicService extends Service {
         super.onCreate();
         mediaPlayer = MediaPlayer.create(this, R.raw.chillmusic);
         mediaPlayer.setLooping(true);
+        mediaPlayer.start();
+        setVolume(50);
     }
 
     @Override
@@ -45,7 +47,10 @@ public class MusicService extends Service {
 
         startForeground(1, notification);
 
-        mediaPlayer.start();
+        if (intent != null && intent.hasExtra("volume")) {
+            int volume = intent.getIntExtra("volume", 50);
+            setVolume(volume);
+        }
 
         return START_STICKY;
     }
@@ -57,6 +62,11 @@ public class MusicService extends Service {
             mediaPlayer.stop();
             mediaPlayer.release();
         }
+    }
+
+    private void setVolume(int volume) {
+        float volumeLevel = volume / 100f;
+        mediaPlayer.setVolume(volumeLevel, volumeLevel);
     }
 
     private void createNotificationChannel() {
