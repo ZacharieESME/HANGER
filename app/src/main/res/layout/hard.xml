@@ -70,7 +70,7 @@
                     android:backgroundTint="#F44336"/>
 
                 <Button
-                    android:layout_width="0dp"
+                    android:layout_width="6dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="W"
@@ -314,6 +314,7 @@
             android:inputType="none"/>
 
         <Button
+            android:id="@+id/guess2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"

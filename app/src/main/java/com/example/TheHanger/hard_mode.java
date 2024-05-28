@@ -184,6 +184,9 @@ public class hard_mode extends AppCompatActivity {
                         Button menu = findViewById(R.id.menu);
                         menu.setVisibility(View.VISIBLE);
 
+                        Button guessButton = findViewById(R.id.guess2);
+                        guessButton.setEnabled(false);
+
 
 
                     }
@@ -217,6 +220,9 @@ public class hard_mode extends AppCompatActivity {
 
                     TextView word = findViewById(R.id.word);
                     word.setText("The word was: " + randomWord);
+
+                    Button guessButton = findViewById(R.id.guess2);
+                    guessButton.setEnabled(false);
 
                 }
             }
@@ -263,6 +269,9 @@ public class hard_mode extends AppCompatActivity {
         word.setText("");
 
         letters.clear();
+
+        Button guessButton = findViewById(R.id.guess2);
+        guessButton.setEnabled(true);
 
     }
 
