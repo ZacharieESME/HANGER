@@ -1,8 +1,14 @@
 package com.example.TheHanger;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -11,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
 import com.example.helloworld.R;
 
@@ -24,6 +31,16 @@ import java.util.Random;
 
 
 public class hard_mode extends AppCompatActivity {
+
+    private BroadcastReceiver soundEffectsReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if ("com.TheHanger.ACTION_SOUND_EFFECTS_CHANGED".equals(intent.getAction())) {
+                boolean soundEffectsEnabled = intent.getBooleanExtra("sound_effects_enabled", true);
+                setSoundEffectsEnabled((ViewGroup) findViewById(android.R.id.content), soundEffectsEnabled);
+            }
+        }
+    }; //Pour les sound effect on a besoin d'un receiver
 
     //private Set<Character> guessedLetters = new HashSet<>();
     public int guessedLetters = 0;
@@ -65,6 +82,32 @@ public class hard_mode extends AppCompatActivity {
         // Display each letter of the word in separate TextViews
         displayWord(randomWord);
 
+        // Register the receiver
+        registerReceiver(soundEffectsReceiver, new IntentFilter("com.TheHanger.ACTION_SOUND_EFFECTS_CHANGED"));
+
+        // Check the current preference and apply it
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean soundEffectsEnabled = sharedPreferences.getBoolean("sound_effects", true);
+        setSoundEffectsEnabled((ViewGroup) findViewById(android.R.id.content), soundEffectsEnabled);
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Unregister the receiver
+        unregisterReceiver(soundEffectsReceiver);
+    }
+
+    private void setSoundEffectsEnabled(ViewGroup viewGroup, boolean enabled) {
+        for (int i = 0; i < viewGroup.getChildCount(); i++) {
+            View view = viewGroup.getChildAt(i);
+            if (view instanceof ViewGroup) {
+                setSoundEffectsEnabled((ViewGroup) view, enabled);
+            } else {
+                view.setSoundEffectsEnabled(enabled);
+            }
+        }
     }
 
     // Method to handle button clicks

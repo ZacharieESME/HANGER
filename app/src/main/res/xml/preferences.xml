@@ -12,7 +12,7 @@
 
 
     <SwitchPreferenceCompat
-        android:key="sound_eff"
+        android:key="sound_effects"
         android:title="Sound effects"
         android:summary="Turn on or off sound effects"
         android:defaultValue="true"/>
