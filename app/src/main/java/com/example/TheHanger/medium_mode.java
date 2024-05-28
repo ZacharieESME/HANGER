@@ -108,6 +108,9 @@ public class medium_mode extends AppCompatActivity {
                 view.setSoundEffectsEnabled(enabled);
             }
         }
+        getSupportActionBar().setTitle("The Hanger");
+        getSupportActionBar().hide();
+
     }
 
     // Method to handle button clicks

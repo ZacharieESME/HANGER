@@ -11,5 +11,10 @@ public class Settings extends AppCompatActivity {
                 .beginTransaction()
                 .replace(android.R.id.content, new SettingsFragment())
                 .commit();
+
+        getSupportActionBar().setTitle("The Hanger");
+        getSupportActionBar().hide();
     }
+
+
 }

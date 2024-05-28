@@ -1,13 +1,7 @@
 package com.example.TheHanger;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
-import android.view.View;
-import com.example.helloworld.R;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -18,6 +12,12 @@ import android.content.IntentFilter;
 import android.view.ViewGroup;
 import android.content.SharedPreferences;
 import androidx.preference.PreferenceManager;
+import android.view.View;
+import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.helloworld.R;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -61,7 +61,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        getSupportActionBar().setTitle("The Hanger");
+
     }
+
+
 
 
     private void setSoundEffectsEnabled(ViewGroup viewGroup, boolean enabled) {
@@ -99,4 +104,6 @@ public class MainActivity extends AppCompatActivity {
         Intent serviceIntent = new Intent(this, MusicService.class);
         stopService(serviceIntent);
     }
+
+
 }
