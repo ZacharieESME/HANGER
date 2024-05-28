@@ -19,7 +19,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
+
 
 public class hard_mode extends AppCompatActivity {
 
@@ -28,6 +30,8 @@ public class hard_mode extends AppCompatActivity {
 
     private EditText displayText;
     public String randomWord;
+
+    public List<String> letters = new ArrayList<>();
 
     private int wrongGuesses = 0; // Counter for wrong guesses
 
@@ -144,6 +148,8 @@ public class hard_mode extends AppCompatActivity {
 
         LinearLayout container = findViewById(R.id.container);// Find the container view
 
+
+
         if (guessedLetter.isEmpty()) {
             // Provide feedback to the user (optional)
             Toast.makeText(this, "Please enter a letter", Toast.LENGTH_SHORT).show();
@@ -152,8 +158,11 @@ public class hard_mode extends AppCompatActivity {
 
 
 
+
         // Check if the guessed letter is in the word
-        if (randomWord.contains(guessedLetter)) {
+        if (randomWord.contains(guessedLetter) && !letters.contains(guessedLetter)) {
+
+            letters.add(guessedLetter);
             // If the guessed letter is correct, change the color to black and remove the underscore
             for (int i = 0; i < randomWord.length(); i++) {
                 if (randomWord.charAt(i) == guessedLetter.charAt(0)) {
@@ -174,8 +183,6 @@ public class hard_mode extends AppCompatActivity {
                         tryagain.setVisibility(View.VISIBLE);
                         Button menu = findViewById(R.id.menu);
                         menu.setVisibility(View.VISIBLE);
-                        wrongGuesses = 0;
-
 
 
 
@@ -187,7 +194,8 @@ public class hard_mode extends AppCompatActivity {
             }
 
         }
-        else {
+        else if(!letters.contains(guessedLetter)){
+
             // Update the wrong guesses TextView
             TextView wrongGuessesTextView = findViewById(R.id.wrongguesses);
             ImageView hangmanImage = findViewById(R.id.hangman);
@@ -213,6 +221,7 @@ public class hard_mode extends AppCompatActivity {
                 }
             }
         }
+
 
         // Clear the EditText after guessing
         editText.getText().clear();
@@ -252,6 +261,8 @@ public class hard_mode extends AppCompatActivity {
 
         TextView word = findViewById(R.id.word);
         word.setText("");
+
+        letters.clear();
 
     }
 
