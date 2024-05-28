@@ -55,6 +55,9 @@ public class select_difficulty extends AppCompatActivity {
             }
         });
 
+        getSupportActionBar().setTitle("The Hanger");
+        getSupportActionBar().hide();
+
 
 
     }

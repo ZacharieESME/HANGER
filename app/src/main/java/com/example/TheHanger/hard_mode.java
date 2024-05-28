@@ -65,6 +65,9 @@ public class hard_mode extends AppCompatActivity {
         // Display each letter of the word in separate TextViews
         displayWord(randomWord);
 
+        getSupportActionBar().setTitle("The Hanger");
+        getSupportActionBar().hide();
+
     }
 
     // Method to handle button clicks
