@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,7 +20,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Random;
-
 
 public class hard_mode extends AppCompatActivity {
 
@@ -143,6 +143,12 @@ public class hard_mode extends AppCompatActivity {
 
 
         LinearLayout container = findViewById(R.id.container);// Find the container view
+
+        if (guessedLetter.isEmpty()) {
+            // Provide feedback to the user (optional)
+            Toast.makeText(this, "Please enter a letter", Toast.LENGTH_SHORT).show();
+            return; // Exit the method if no input
+        }
 
 
 
