@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="keyboard_background">#E6E6E6</color> <!-- Light gray color for keyboard background -->
     <color name="button_background">#4CAF50</color> <!-- blue color for button background -->
+    <color name="orange">#FFA500</color>
 </resources>
