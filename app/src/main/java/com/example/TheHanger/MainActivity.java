@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         getSupportActionBar().setTitle("The Hanger");
-
     }
 
 

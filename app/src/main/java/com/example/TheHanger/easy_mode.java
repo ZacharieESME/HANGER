@@ -32,6 +32,8 @@ public class easy_mode extends AppCompatActivity {
     public int guessedLetters = 0;
 
     private EditText displayText;
+
+    private int winstreak = 0;
     public String randomWord;
 
     public List<String> letters = new ArrayList<>();
@@ -60,7 +62,7 @@ public class easy_mode extends AppCompatActivity {
         setContentView(R.layout.easy);
 
         // Trouver le bouton avec l'ID "button"
-        ImageButton backButton = findViewById(R.id.hard);
+        ImageButton backButton = findViewById(R.id.backButton);
 
         // Ajouter un écouteur de clics au bouton
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -210,6 +212,11 @@ public class easy_mode extends AppCompatActivity {
 
                     if (guessedLetters == randomWord.length()){
                         guessedLetters = 0;
+                        Button guessButton = findViewById(R.id.guess);
+                        guessButton.setEnabled(false);
+
+                        winstreak ++;
+
                         ImageView congratImage = findViewById(R.id.congrat);
                         congratImage.setVisibility(View.VISIBLE);
                         Button tryagain = findViewById(R.id.tryagain);
@@ -217,13 +224,10 @@ public class easy_mode extends AppCompatActivity {
                         Button menu = findViewById(R.id.menu);
                         menu.setVisibility(View.VISIBLE);
 
-                        Button guessButton = findViewById(R.id.guess);
-                        guessButton.setEnabled(false);
-
-
+                        TextView word = findViewById(R.id.word);
+                        word.setText("Your win streak: " + winstreak);
 
                     }
-
 
                 }
 
@@ -256,6 +260,8 @@ public class easy_mode extends AppCompatActivity {
 
                     Button guessButton = findViewById(R.id.guess);
                     guessButton.setEnabled(false);
+
+                    winstreak = 0;
 
                 }
             }
@@ -302,9 +308,12 @@ public class easy_mode extends AppCompatActivity {
         word.setText("");
 
         letters.clear();
+        guessedLetters = 0;
 
         Button guessButton = findViewById(R.id.guess);
         guessButton.setEnabled(true);
+
+        word.setText("");
 
     }
 

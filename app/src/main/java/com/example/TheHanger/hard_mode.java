@@ -33,6 +33,8 @@ public class hard_mode extends AppCompatActivity {
     private EditText displayText;
     public String randomWord;
 
+    private int winstreak = 0;
+
     public List<String> letters = new ArrayList<>();
 
     private int wrongGuesses = 0; // Counter for wrong guesses
@@ -210,12 +212,17 @@ public class hard_mode extends AppCompatActivity {
 
                     if (guessedLetters == randomWord.length()){
                         guessedLetters = 0;
+                        winstreak ++;
+
                         ImageView congratImage = findViewById(R.id.congrat);
                         congratImage.setVisibility(View.VISIBLE);
                         Button tryagain = findViewById(R.id.tryagain);
                         tryagain.setVisibility(View.VISIBLE);
                         Button menu = findViewById(R.id.menu);
                         menu.setVisibility(View.VISIBLE);
+
+                        TextView word = findViewById(R.id.word);
+                        word.setText("Your win streak: " + winstreak);
 
                         Button guessButton = findViewById(R.id.guess2);
                         guessButton.setEnabled(false);
@@ -256,6 +263,8 @@ public class hard_mode extends AppCompatActivity {
 
                     Button guessButton = findViewById(R.id.guess2);
                     guessButton.setEnabled(false);
+
+                    winstreak = 0;
 
                 }
             }
@@ -302,9 +311,12 @@ public class hard_mode extends AppCompatActivity {
         word.setText("");
 
         letters.clear();
+        guessedLetters = 0;
 
         Button guessButton = findViewById(R.id.guess2);
         guessButton.setEnabled(true);
+
+        word.setText("");
 
     }
 
