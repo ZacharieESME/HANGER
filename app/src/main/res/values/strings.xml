@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hello World</string>
+    <string name="app_name">The Hanger</string>
     <string name="top_fire_border" />
     <string name="hangman" />
     <string name="play_button" />
