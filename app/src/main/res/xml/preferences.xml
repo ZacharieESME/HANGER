@@ -17,4 +17,13 @@
         android:summary="Turn on or off sound effects"
         android:defaultValue="true"/>
 
+    <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+        <ListPreference
+            android:key="theme"
+            android:title="Select Theme"
+            android:defaultValue="light"
+            android:entries="@array/theme_options"
+            android:entryValues="@array/theme_values" />
+    </PreferenceScreen>
+
 </androidx.preference.PreferenceScreen>

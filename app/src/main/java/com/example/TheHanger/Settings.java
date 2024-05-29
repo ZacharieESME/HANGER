@@ -14,6 +14,7 @@ public class Settings extends AppCompatActivity {
 
         getSupportActionBar().setTitle("The Hanger");
         getSupportActionBar().hide();
+
     }
 
 
