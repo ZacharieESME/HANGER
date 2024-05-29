@@ -103,8 +103,18 @@ public class medium_mode extends AppCompatActivity {
             }
         });
 
+        // Trouver le bouton avec l'ID "button"
+        Button menuButton = findViewById(R.id.menu2);
 
-
+        // Ajouter un écouteur de clics au bouton
+        menuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Créer une intention pour démarrer une nouvelle activité
+                Intent intent = new Intent(medium_mode.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         // Initialize the EditText
@@ -263,7 +273,7 @@ public class medium_mode extends AppCompatActivity {
                         congratImage.setVisibility(View.VISIBLE);
                         Button tryagain = findViewById(R.id.tryagain);
                         tryagain.setVisibility(View.VISIBLE);
-                        Button menu = findViewById(R.id.menu);
+                        Button menu = findViewById(R.id.menu2);
                         menu.setVisibility(View.VISIBLE);
 
                         TextView word = findViewById(R.id.word);
@@ -300,7 +310,7 @@ public class medium_mode extends AppCompatActivity {
                     youloseImage.setVisibility(View.VISIBLE);
                     Button tryagain = findViewById(R.id.tryagain);
                     tryagain.setVisibility(View.VISIBLE);
-                    Button menu = findViewById(R.id.menu);
+                    Button menu = findViewById(R.id.menu2);
                     menu.setVisibility(View.VISIBLE);
 
 
@@ -346,7 +356,7 @@ public class medium_mode extends AppCompatActivity {
         congratImage.setVisibility(View.INVISIBLE);
         Button tryagain = findViewById(R.id.tryagain);
         tryagain.setVisibility(View.INVISIBLE);
-        Button menu = findViewById(R.id.menu);
+        Button menu = findViewById(R.id.menu2);
         menu.setVisibility(View.INVISIBLE);
 
         // Reset the word display (replace "container" with your layout ID)

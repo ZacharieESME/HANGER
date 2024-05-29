@@ -106,6 +106,20 @@ public class easy_mode extends AppCompatActivity {
             }
         });
 
+        // Trouver le bouton avec l'ID "button"
+        Button menuButton = findViewById(R.id.menu);
+
+        // Ajouter un écouteur de clics au bouton
+        menuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Créer une intention pour démarrer une nouvelle activité
+                Intent intent = new Intent(easy_mode.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
         // Initialize the EditText
         displayText = findViewById(R.id.displayText);

@@ -15,6 +15,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.view.ViewGroup;
 import android.content.SharedPreferences;
+import android.widget.ImageButton;
+
 import androidx.preference.PreferenceManager;
 
 public class select_difficulty extends AppCompatActivity {
@@ -33,6 +35,34 @@ public class select_difficulty extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState); //
         setContentView(R.layout.select_difficulty);
+
+
+        // Trouver le bouton avec l'ID "button"
+        ImageButton backButton = findViewById(R.id.backButton4);
+
+        // Ajouter un écouteur de clics au bouton
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Créer une intention pour démarrer une nouvelle activité
+                Intent intent = new Intent(select_difficulty.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        // Trouver le bouton avec l'ID "button"
+        ImageButton settingButton = findViewById(R.id.settings4);
+
+        // Ajouter un écouteur de clics au bouton
+        settingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Créer une intention pour démarrer une nouvelle activité
+                Intent intent = new Intent(select_difficulty.this, Settings.class);
+                startActivity(intent);
+            }
+        });
 
         // Trouver le bouton avec l'ID "button"
         Button easyButton = findViewById(R.id.easy);
