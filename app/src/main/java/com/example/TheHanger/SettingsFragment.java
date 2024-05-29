@@ -9,10 +9,12 @@ import androidx.preference.PreferenceManager;
 import android.content.Intent;
 import android.util.Log;
 
+
 public class SettingsFragment extends PreferenceFragmentCompat
         implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     private static final String TAG = "SettingsFragment";
+
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -43,5 +45,15 @@ public class SettingsFragment extends PreferenceFragmentCompat
             intent.putExtra("volume", volume);
             getActivity().startService(intent);
         }
+        if (key.equals("sound_effects")) {
+            boolean soundEffectsEnabled = sharedPreferences.getBoolean(key, true);
+            Log.d(TAG, "Sound effects enabled: " + soundEffectsEnabled);
+            // Send broadcast to notify activities and fragments about the preference change
+            Intent intent = new Intent("com.example.ACTION_SOUND_EFFECTS_CHANGED");
+            intent.putExtra("sound_effects_enabled", soundEffectsEnabled);
+            getActivity().sendBroadcast(intent);
+        }
     }
+
+
 }
